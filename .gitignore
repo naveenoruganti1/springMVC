@@ -1,0 +1,9 @@
+/.metadata/
+.classpath
+.jsdtscope
+.project
+.springBeans
+/Servers
+/*/.settings
+/*/*/classes/*
+/*/*/m2e-wtp/*
