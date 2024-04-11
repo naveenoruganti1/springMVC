@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- ParameterizableViewController Start -->
+	<!-- <bean id="contactusController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="contact-us"/>
+	</bean>
+	<bean id="ourServicesController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="our-services"/>
+	</bean> -->
+	
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/contact-us.htm">contactusController</prop>
+				<prop key="/our-us.htm">ourServicesController</prop>
+			</props>			
+		</property>
+	</bean> -->
+	<!-- ParameterizableViewController END -->
+	
+	<!-- UrlFilenameViewController Start , it will return lvn by removng / and .htm from key to DS-->
+	<bean id="urlFileNameController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/contact-us.htm">urlFileNameController</prop>
+				<prop key="/our-us.htm">urlFileNameController</prop>
+			</props>			
+		</property>
+	</bean>
+	<!-- UrlFilenameViewController END -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>
